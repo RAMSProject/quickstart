@@ -25,4 +25,6 @@ RUN env/bin/python3 sideboard/plugins/distribute_setup.py
 RUN env/bin/python3 setup.py develop
 RUN env/bin/paver install_deps
 
+CMD /uber/env/bin/python3 /uber/sideboard/run_server.py
+
 # EXPOSE 4321 # HTTP port that cherrypy (uber) listens on
