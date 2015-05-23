@@ -15,7 +15,7 @@ RUN apt-get -y install git ssh python3
 
 # download the main uber deploy repo
 # TODO: also here install any plugins you want
-RUN git clone https://github.com/magfest/sideboard /uber
+RUN git clone https://github.com/magfest/sideboard -b docker /uber
 RUN git clone https://github.com/magfest/ubersystem /uber/sideboard/plugins
 
 RUN python3 -m venv /uber/env --without-pip --copies
