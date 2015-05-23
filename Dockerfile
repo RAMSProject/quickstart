@@ -19,6 +19,8 @@ RUN git clone https://github.com/magfest/ubersystem /uber/sideboard/plugins
 
 RUN python3 -m venv /uber/env --without-pip --copies
 
+RUN /uber/env/bin/python3 /uber/sideboard/plugins/distribute_setup.py
+
 # setup the config file which tells it what other repos to look at
 
 EXPOSE 80 
