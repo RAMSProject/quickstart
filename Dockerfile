@@ -3,7 +3,7 @@ MAINTAINER Dominic Cerquetti "dom@magfest.org"
 
 # base system stuff
 RUN apt-get -y update
-RUN apt-get -y install git python3 python3-tk
+RUN apt-get -y install git python3 python3-tk gcc python3-dev libpq-dev
 
 # setup SSH keys for github access. 
 # this assumes you copied your own SSH key into 
@@ -16,13 +16,15 @@ RUN apt-get -y install git python3 python3-tk
 # download the main uber deploy repo
 # TODO: also here install any plugins you want
 RUN git clone https://github.com/magfest/sideboard -b docker /uber
-RUN git clone https://github.com/magfest/ubersystem /uber/sideboard/plugins
+
+WORKDIR /uber
+RUN git clone https://github.com/magfest/ubersystem plugins/uber
 
 RUN python3 -m venv /uber/env --without-pip --copies
 
-WORKDIR /uber
-RUN env/bin/python3 sideboard/plugins/distribute_setup.py
+RUN env/bin/python3 plugins/uber/distribute_setup.py
 RUN env/bin/python3 setup.py develop
+
 RUN env/bin/paver install_deps
 
 CMD /uber/env/bin/python3 /uber/sideboard/run_server.py
