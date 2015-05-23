@@ -17,7 +17,7 @@ RUN apt-get -y install git ssh python3
 RUN git clone https://github.com/magfest/sideboard /uber
 RUN git clone https://github.com/magfest/ubersystem /uber/sideboard/plugins
 
-# TODO RUN python3.3 -m venv /uber/venv
+RUN python3 -m venv /uber/env --without-pip --copies
 
 # setup the config file which tells it what other repos to look at
 

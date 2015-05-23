@@ -5,7 +5,7 @@
 #
 # this SSH key should allow read-only access to any repos on github
 # required to build this container
-cp ~/.ssh/id_rsa .
+# cp ~/.ssh/id_rsa .
 
 # run the rest of the build
 docker build -t magfest/uber .
