@@ -3,7 +3,7 @@ MAINTAINER Dominic Cerquetti "dom@magfest.org"
 
 # base system stuff
 RUN apt-get -y update
-RUN apt-get -y install git ssh python3
+RUN apt-get -y install git python3 python3-tk
 
 # setup SSH keys for github access. 
 # this assumes you copied your own SSH key into 
@@ -27,4 +27,5 @@ RUN env/bin/paver install_deps
 
 CMD /uber/env/bin/python3 /uber/sideboard/run_server.py
 
-# EXPOSE 4321 # HTTP port that cherrypy (uber) listens on
+# HTTP port that cherrypy (uber) listens on
+EXPOSE 4321
