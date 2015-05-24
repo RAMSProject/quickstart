@@ -1,0 +1,30 @@
+super mega early beta of ubersystem running in a container
+ULTRA EXPERIMENTAL RIGHT NOW
+-Dom
+
+for dev environments (HYPER EXPERIMENTAL) do this:
+
+./build.sh to build the image
+
+then
+
+./setup-dev.sh
+
+This will take the uber base image and run it with a command which will
+copy all the code from /uber into the data volume. This is mounted from the 
+host in the 'app' directory here.
+
+The command then setups ubersystem to run with the code in the volume.
+
+The entire point of this is the host OS can access the data volume and 
+edit the running code inside the docker container.
+
+DO NOT USE THIS IN PRODUCTION. However, it's very useful in development.
+
+ONLY RUN THIS SCRIPT ONCE or it will overwrite your code changes with the
+stock code inside the container.
+
+-----------
+
+ULTRA EXPERIMENTAL, can't stress that enough.  Also there's a bunch of dumb
+things we should fix in here.  Dom and Thaeli are on it.
