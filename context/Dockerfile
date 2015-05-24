@@ -21,9 +21,10 @@ RUN git clone https://github.com/magfest/ubersystem plugins/uber
 
 RUN python3 -m venv /uber/env --without-pip --copies
 
-RUN env/bin/python3 plugins/uber/distribute_setup.py
+RUN /uber/env/bin/python3 /uber/plugins/uber/distribute_setup.py
+RUN /uber/env/bin/python3 setup.py develop
 
-RUN env/bin/paver install_deps
+RUN /uber/env/bin/paver install_deps
 
 CMD /uber/env/bin/python3 /uber/sideboard/run_server.py
 
