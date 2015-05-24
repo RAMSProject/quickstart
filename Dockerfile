@@ -2,8 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Dominic Cerquetti "dom@magfest.org"
 
 # base system stuff
-RUN apt-get -y update
-RUN apt-get -y install git python3 python3-tk gcc python3-dev libpq-dev
+RUN apt-get -y update && apt-get -y install git python3 python3-tk gcc python3-dev libpq-dev && apt-get clean
 
 # setup SSH keys for github access. 
 # this assumes you copied your own SSH key into 
@@ -23,7 +22,6 @@ RUN git clone https://github.com/magfest/ubersystem plugins/uber
 RUN python3 -m venv /uber/env --without-pip --copies
 
 RUN env/bin/python3 plugins/uber/distribute_setup.py
-RUN env/bin/python3 setup.py develop
 
 RUN env/bin/paver install_deps
 

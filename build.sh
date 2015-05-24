@@ -8,4 +8,4 @@
 # cp ~/.ssh/id_rsa .
 
 # run the rest of the build
-docker build -t magfest/uber .
+docker build -t magfest/uber context
