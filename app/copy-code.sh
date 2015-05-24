@@ -9,5 +9,7 @@
 # Once the docker container is fully setup,
 # run this script FROM INSIDE THE CONTAINER
 
-mv /uber /mnt/dev/
-ln -s /mnt/dev/uber /uber
+echo "Copying code into data volume..."
+
+mv /uber /mnt/app/
+ln -s /mnt/app/uber /uber
