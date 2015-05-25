@@ -8,7 +8,4 @@
 cd /home/vagrant/docker
 
 # build the docker container from scratch
-./build.sh
-
-# modify it suitable for development
-./setup-dev.sh
+./build-dev.sh
