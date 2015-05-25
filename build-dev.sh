@@ -15,7 +15,7 @@ set -e
 
 docker run \
   --name intermediate_dev \
-  $DOCKER_OPTS -it \
+  $DOCKER_OPTS -t \
   magfest/uber /mnt/app/copy-code.sh
 
 docker commit \
