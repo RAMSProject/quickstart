@@ -2,4 +2,4 @@
 
 . include.sh
 
-docker run --name uberapp $DOCKER_OPTS -it magfest/uberdev $1
+docker run --name uberapp $DOCKER_OPTS -dt magfest/uberdev $1

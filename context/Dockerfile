@@ -1,8 +1,21 @@
 FROM ubuntu:14.04
 MAINTAINER Dominic Cerquetti "dom@magfest.org"
 
+# TODO: probably want to copy this stuff in here:
+# https://github.com/magfest/ubersystem-deploy/blob/master/vagrant/vagrant.sh
+
 # base system stuff
-RUN apt-get -y update && apt-get -y install git python3 python3-tk gcc python3-dev libpq-dev && apt-get clean
+RUN apt-get -y update && apt-get -y install git python3 python3-tk gcc python3-dev libpq-dev wamerican language-pack-id && apt-get clean
+
+RUN locale-gen en_US en_US.UTF-8 hu_HU hu_HU.UTF-8
+RUN dpkg-reconfigure locales
+
+# there is a bug in python -m venv which doesnt obey --copies 
+# (i.e. don't do any symlinks). We have submitted this to CPython 
+# for inclusion but for now, patch the installed python file.
+# (we can't use symlinks with SMB shares).  May not be strictly necessary
+# for docker in production, but, doesn't hurt to have this fix.
+RUN patch /usr/lib/python3.4/venv/__init__.py < venv-symlink-fix.patch
 
 # setup SSH keys for github access. 
 # this assumes you copied your own SSH key into 
