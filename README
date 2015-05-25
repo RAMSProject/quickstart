@@ -13,24 +13,28 @@ then
 ```
 docker run -ti magfest/uber
 ```
+(run with whatever options you like)
 
 Which runs the actual container (you will also need to start a DB/etc)
 
 ----------------------
 
-for dev environments do this:
+for dev environments (with Vagrant) do this:
 
 ```
-./build-dev.sh
+vagrant up
+# wait 30 minutes
+vagrant ssh
 ```
 
 then
 
 ```
+cd docker
 ./run-dev.sh
 ```
 
-This will start the uber app in a container
+This will start the uber app in a container, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
 
 ---------------
 
