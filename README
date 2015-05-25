@@ -2,19 +2,54 @@ super mega early beta of ubersystem running in a container
 ULTRA EXPERIMENTAL RIGHT NOW
 -Dom
 
-for dev environments (HYPER EXPERIMENTAL) do this:
+for production do this:
 
-./build.sh to build the image
+```
+./build.sh
+```
 
 then
 
-./setup-dev.sh
+```
+docker run -ti magfest/uber
+```
 
-This will take the uber base image and run it with a command which will
-copy all the code from /uber into the data volume. This is mounted from the 
-host in the 'app' directory here.
+Which runs the actual container (you will also need to start a DB/etc)
+
+----------------------
+
+for dev environments do this:
+
+```
+./build-dev.sh
+```
+
+then
+
+```
+./run-dev.sh
+```
+
+This will start the uber app in a container
+
+---------------
+
+More details:
+====
+
+What is build-dev.sh doing?
+
+This will take the uber base image and copy all the python code from 
+the docker container's /uber into the data volume. 
+This is mounted from the host OS in the 'app' directory here.  You can now
+edit the code there with your favorite editor/IDE
 
 The command then setups ubersystem to run with the code in the volume.
+
+It will also save a new image called 'magfest/uberdev' which you can now run.
+This image is identical to 'magfest/uber' which was just built, except,
+it will look for it's code in the 'app/uber' directory, making it nice for
+development.
 
 The entire point of this is the host OS can access the data volume and 
 edit the running code inside the docker container.
