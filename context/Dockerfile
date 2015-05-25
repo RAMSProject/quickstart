@@ -15,7 +15,8 @@ RUN dpkg-reconfigure locales
 # for inclusion but for now, patch the installed python file.
 # (we can't use symlinks with SMB shares).  May not be strictly necessary
 # for docker in production, but, doesn't hurt to have this fix.
-RUN patch /usr/lib/python3.4/venv/__init__.py < venv-symlink-fix.patch
+ADD venv-symlink-fix.patch /tmp/venv-symlink-fix.patch
+RUN patch /usr/lib/python3.4/venv/__init__.py < /tmp/venv-symlink-fix.patch
 
 # setup SSH keys for github access. 
 # this assumes you copied your own SSH key into 
