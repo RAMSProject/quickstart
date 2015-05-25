@@ -1,0 +1,17 @@
+* 	text=auto eol=lf
+*.py 	text
+*.xml	text
+*.css 	text
+*.html 	text
+*.sh	text
+*.pp	text
+*.yaml	text
+*.sh	text
+*.erb	text
+*.json	text
+*.supervisord	text
+*.md	text
+vagrant/bash_aliases text
+
+*.png 	binary
+*.jpg 	binary
