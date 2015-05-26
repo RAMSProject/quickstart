@@ -5,7 +5,7 @@ MAINTAINER Dominic Cerquetti "dom@magfest.org"
 # https://github.com/magfest/ubersystem-deploy/blob/master/vagrant/vagrant.sh
 
 # base system stuff
-RUN apt-get -y update && apt-get -y install git python3 python3-tk gcc python3-dev libpq-dev wamerican language-pack-id && apt-get clean
+RUN apt-get -y update && apt-get -y install git python3 python3-gdbm python3-tk gcc python3-dev libpq-dev wamerican language-pack-id && apt-get clean
 
 RUN locale-gen en_US en_US.UTF-8 hu_HU hu_HU.UTF-8
 RUN dpkg-reconfigure locales
