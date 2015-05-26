@@ -11,7 +11,7 @@ for production do this:
 then
 
 ```
-docker run -ti magfest/uber
+docker-compose up
 ```
 (run with whatever options you like)
 
@@ -23,7 +23,7 @@ for dev environments (with Vagrant) do this:
 
 ```
 vagrant up
-# wait 30 minutes
+# wait 30 minutes for everything to build
 vagrant ssh
 ```
 
@@ -31,10 +31,12 @@ then
 
 ```
 cd docker
-./run-dev.sh
+docker-compose up
 ```
 
 This will start the uber app in a container, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
+
+Open your brower and go to "http://localhost:8282/magfgest"
 
 ---------------
 
