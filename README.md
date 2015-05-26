@@ -2,7 +2,43 @@ super mega early beta of ubersystem running in a container
 ULTRA EXPERIMENTAL RIGHT NOW
 -Dom
 
+for dev environments (with Vagrant) do this:
+===
+
+```
+vagrant up
+# wait 30 minutes for everything to build
+vagrant ssh
+```
+
+now you are logged into the vagrant ubuntu machine with SSH.  in there type this:
+
+```
+cd docker
+docker-compose up
+```
+
+This will start the uber app in a container, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
+
+Open your brower and go to "http://localhost:8282/magfest"
+
+--------------
+
+getting a fresh copy (dev)
+===
+
+run the following commands from your host OS (i.e. windows)
+```
+vagrant halt
+vagrant destroy
+```
+
+Then (AFTER COMMITTING ANY CODE CHANGES, WHICH WOULD BE DESTROYED) remove the local folder 'app/uber' which was copied by Docker into your local files.
+
+You are now ready to pull down a new copy with the dev instructions
+
 for production do this:
+===
 
 ```
 ./build.sh
@@ -16,27 +52,6 @@ docker-compose up
 (run with whatever options you like)
 
 Which runs the actual container (you will also need to start a DB/etc)
-
-----------------------
-
-for dev environments (with Vagrant) do this:
-
-```
-vagrant up
-# wait 30 minutes for everything to build
-vagrant ssh
-```
-
-then
-
-```
-cd docker
-docker-compose up
-```
-
-This will start the uber app in a container, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
-
-Open your brower and go to "http://localhost:8282/magfgest"
 
 --------------
 
