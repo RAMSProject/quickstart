@@ -38,6 +38,18 @@ This will start the uber app in a container, and the code will be accessible fro
 
 Open your brower and go to "http://localhost:8282/magfgest"
 
+--------------
+
+Next steps!
+
+From inside vagrant, run the following to insert an admin user:
+
+```
+docker exec docker_web_1 /uber/env/bin/sep insert_admin
+```
+
+Now you can login to the web app with username "magfest@example.com" and password "magfest"
+
 ---------------
 
 More details:
