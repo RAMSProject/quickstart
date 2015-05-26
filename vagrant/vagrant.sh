@@ -29,4 +29,4 @@ chmod +x /usr/local/bin/docker-compose
 cd /home/vagrant/docker
 ./build-dev.sh
 
-./set-git-ignore-permissions.sh
+vagrant/set-git-ignore-permissions.sh
