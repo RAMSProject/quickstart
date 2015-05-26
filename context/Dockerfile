@@ -31,7 +31,7 @@ RUN patch /usr/lib/python3.4/venv/__init__.py < /tmp/venv-symlink-fix.patch
 RUN git clone https://github.com/magfest/sideboard -b docker /uber
 
 WORKDIR /uber
-RUN git clone https://github.com/magfest/ubersystem plugins/uber
+RUN git clone https://github.com/magfest/ubersystem -b docker plugins/uber
 
 RUN python3 -m venv /uber/env --without-pip --copies
 
