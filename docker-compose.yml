@@ -11,6 +11,6 @@ web:
 db:
   image: postgres
   environment:
-    - POSTGRES_PASSWORD=m13
-    - POSTGRES_USER=m13
-    - POSTGRES_DB=m13
+    - POSTGRES_PASSWORD=uber_db
+    - POSTGRES_USER=uber_db
+    - POSTGRES_DB=uber_db
