@@ -51,14 +51,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # create a way for us to know if we're running inside vagrant on windows
     # from within the guest OS.
-	config.vm.provision :shell do |shell|
-		shell_cmd = ""
-		if Vagrant::Util::Platform.windows?
-			shell_cmd << "echo 'YES' > /etc/is_running_vagrant_on_windows"
-		end
-		shell.inline = "#{shell_cmd}"
-	end
-	
+    config.vm.provision :shell do |shell|
+        shell_cmd = ""
+        if Vagrant::Util::Platform.windows?
+            shell_cmd << "echo 'YES' > /etc/is_running_vagrant_on_windows"
+        end
+        shell.inline = "#{shell_cmd}"
+    end
+    
     config.vm.provision :shell, :path => "vagrant/vagrant.sh"
 
     config.vm.provider :virtualbox do |vb|
