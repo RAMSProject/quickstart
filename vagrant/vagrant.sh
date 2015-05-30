@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # run ubersystem's docker installation in our VM.
+cd /home/vagrant/docker
 
 # install anything this host needs to run docker containers and do builds
 setup/setup.sh
