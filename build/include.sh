@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-DOCKER_OPTS="-p 8282:8282 -v $CWD/app:/mnt/app"
+DOCKER_OPTS="-p 8282:8282 -v $CWD/../app:/mnt/app -v $CWD/uber-dev:/mnt/uber-dev"
 
 # TODO: require 1.6 *OR HIGHER*
 # right now this requires exactly 1.6

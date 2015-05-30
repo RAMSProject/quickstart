@@ -1,7 +1,7 @@
 # docker-compose for development of ubersystem
 
 web:
-  image: magfest/uberdev
+  image: magfest/uber-dev
   links:
     - db
   ports:

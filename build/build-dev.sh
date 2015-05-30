@@ -14,7 +14,7 @@ set -e
 docker run \
   --name intermediate_dev \
   $DOCKER_OPTS -t \
-  magfest/uber-app /mnt/app/copy-code.sh
+  magfest/uber-app /mnt/uber-dev/copy-code.sh
 
 docker commit \
   -c "CMD /env/bin/python3 /uber/sideboard/run_server.py" \

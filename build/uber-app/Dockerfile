@@ -6,12 +6,10 @@ MAINTAINER Dominic Cerquetti "dom@magfest.org"
 RUN git clone https://github.com/magfest/sideboard -b docker /uber
 
 WORKDIR /uber
-RUN git clone https://github.com/magfest/ubersystem -b docker plugins/uber
+RUN git clone https://github.com/magfest/ubersystem plugins/uber
 
-RUN /env/bin/python3 /uber/plugins/uber/distribute_setup.py
-RUN /env/bin/python3 setup.py develop
-
-RUN /env/bin/paver install_deps
+RUN /env/bin/pip3 install -e /uber
+RUN /env/bin/pip3 install -e /uber/plugins/uber
 
 CMD /env/bin/python3 /uber/sideboard/run_server.py
-EXPOSE 8282 # http
+EXPOSE 8282 
