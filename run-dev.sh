@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
-. include.sh
+. build/include.sh
 
-docker run $DOCKER_OPTS magfest/uberdev $1
+# docker run $DOCKER_OPTS magfest/uberdev $1
+docker-compose up

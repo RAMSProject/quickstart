@@ -26,7 +26,7 @@ chmod +x /usr/local/bin/docker-compose
 
 # build the docker container from scratch, and then modify it for development
 # so that the code is exposed in app/uber/
-cd /home/vagrant/docker
-./build-dev.sh
+cd /home/vagrant/docker/
+build/build.sh
 
 vagrant/set-git-ignore-permissions.sh
