@@ -3,5 +3,5 @@
 set -e
 . build/include.sh
 
-docker run -ti $DOCKER_OPTS magfest/uber-dev $1
+docker exec -ti docker_web_1 $1
 # docker-compose up
