@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/app/uber/sideboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/app/uber/sideboard/plugins/uber" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.4.0 (C:/Python34/python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.4.0 Vagrant VM at D:\uber\ubersystem-docker (/home/vagrant/docker/app/uber/env/bin/python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
