@@ -60,7 +60,7 @@ Next steps!
 From inside vagrant, run the following to insert an admin user:
 
 ```
-docker exec docker_web_1 /uber/env/bin/sep insert_admin
+docker exec uberdocker_web_1 /uber/env/bin/sep insert_admin
 ```
 
 Now you can login to the web app with username "magfest@example.com" and password "magfest"
@@ -79,8 +79,8 @@ edit the code there with your favorite editor/IDE
 
 The command then setups ubersystem to run with the code in the volume.
 
-It will also save a new image called 'magfest/uberdev' which you can now run.
-This image is identical to 'magfest/uber' which was just built, except,
+It will also save a new image called 'magfest/uber-dev' which you can now run.
+This image is identical to 'magfest/uber-app' which was just built, except,
 it will look for it's code in the 'app/uber' directory, making it nice for
 development.
 
@@ -96,3 +96,22 @@ stock code inside the container.
 
 ULTRA EXPERIMENTAL, can't stress that enough.  Also there's a bunch of dumb
 things we should fix in here.  Dom and Thaeli are on it.
+
+
+Debugging with PyCharm
+========
+
+todo: write this section better, and also write a script that handles this.
+
+copy pycharm-debug-py3k.egg somewhere that docker can access
+in docker: /uber/env/bin/easy_install pycharm-debug-py3k.egg
+ 
+on your machine running pycharm, make sure port 5000 is open
+
+add this code here, replace $$IP$$ with the IP address of the machine running pycharm (i.e. windows) 
+```
+import pydevd
+pydevd.settrace('$$IP$$', port=5000, stdoutToServer=True, stderrToServer=True)
+```
+
+in pycharm, run the 'debug uber docker container' configuration by pressing the green Debug button in the upper right

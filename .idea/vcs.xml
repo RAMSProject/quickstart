@@ -2,7 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/app/uber" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/app/uber/plugins/uber" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/uber/sideboard" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/uber/sideboard/plugins/uber" vcs="Git" />
   </component>
 </project>

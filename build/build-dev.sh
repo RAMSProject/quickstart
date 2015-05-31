@@ -11,16 +11,14 @@ set -e
 
 . include.sh
 
-./build.sh
-
 docker run \
   --name intermediate_dev \
   $DOCKER_OPTS -t \
-  magfest/uber /mnt/app/copy-code.sh
+  magfest/uber-app /mnt/uber-dev/copy-code.sh
 
 docker commit \
-  -c "CMD /uber/env/bin/python3 /uber/sideboard/run_server.py" \
-  intermediate_dev magfest/uberdev 
+  -c "CMD /uber/env/bin/python3 /uber/sideboard/sideboard/run_server.py" \
+  intermediate_dev magfest/uber-dev 
 
 docker kill intermediate_dev
 docker rm   intermediate_dev
