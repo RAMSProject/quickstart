@@ -17,7 +17,7 @@ docker run \
   magfest/uber-app /mnt/uber-dev/copy-code.sh
 
 docker commit \
-  -c "CMD /env/bin/python3 /uber/sideboard/run_server.py" \
+  -c "CMD /uber/env/bin/python3 /uber/sideboard/run_server.py" \
   intermediate_dev magfest/uber-dev 
 
 docker kill intermediate_dev

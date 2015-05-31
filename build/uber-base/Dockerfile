@@ -27,8 +27,7 @@ RUN 	apt-get -y update && \
 
 # setup a virtual environment
 RUN pip3 install virtualenv
-RUN virtualenv /env
-# RUN python3 -m venv /env --copies --without-pip
+RUN virtualenv --always-copy /uber/env
 
 ADD guess_and_install_uber_requirements.sh /tmp/
 RUN /tmp/guess_and_install_uber_requirements.sh

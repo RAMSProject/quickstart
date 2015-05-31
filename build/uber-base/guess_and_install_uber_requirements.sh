@@ -6,7 +6,7 @@
 
 # this script will compile a reasonable guess at what dependencies
 # ubersystem and sideboard will want to install, and install them
-# in /env.  When later images run 'setup.py install develop', most
+# in /uber/env.  When later images run 'setup.py install develop', most
 # of the requirements packages will already have been installed,
 # this skipping a lot of the build time.
 
@@ -34,7 +34,7 @@ install_python_reqs()
 
 	download_github_file $REPO $BRANCH "requirements.txt"
 
-	/env/bin/pip3 install -r "requirements.txt"
+	/uber/env/bin/pip3 install -r "requirements.txt"
 
 	rm -f "requirements.txt"
 }
