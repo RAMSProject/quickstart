@@ -79,8 +79,8 @@ edit the code there with your favorite editor/IDE
 
 The command then setups ubersystem to run with the code in the volume.
 
-It will also save a new image called 'magfest/uberdev' which you can now run.
-This image is identical to 'magfest/uber' which was just built, except,
+It will also save a new image called 'magfest/uber-dev' which you can now run.
+This image is identical to 'magfest/uber-app' which was just built, except,
 it will look for it's code in the 'app/uber' directory, making it nice for
 development.
 
