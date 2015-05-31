@@ -6,7 +6,7 @@
     <PathMappingSettings>
       <option name="pathMappings">
         <list>
-          <mapping local-root="d:\uber\ubersystem-docker\app\uber\" remote-root="/uber" />
+          <mapping local-root="$PROJECT_DIR$/app/uber" remote-root="/mnt/app/uber" />
         </list>
       </option>
     </PathMappingSettings>
