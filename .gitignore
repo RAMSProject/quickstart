@@ -3,3 +3,4 @@ app/uber
 .idea/workspace.xml
 vagrant-host-machine-ip-addr.txt
 x
+app/pycharm-debug-py3k.egg
