@@ -1,3 +1,5 @@
 app/uber
 .vagrant/*
 .idea/workspace.xml
+vagrant-host-machine-ip-addr.txt
+x
