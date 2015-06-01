@@ -14,11 +14,16 @@ mv /uber /mnt/app/
 ln -s /mnt/app/uber /uber
 
 
-# part 2, optional: if PyCharm debugger egg is present, go ahead and install it so
-# that pycharm users can do debugging. follow instructions in the Readme
+# part 2, optional: if PyCharm debugger egg is present, go ahead and install it
+# so that pycharm users can do debugging. follow instructions in the Readme
 
 if [ -e /mnt/app/pycharm-debug-py3k.egg ]
 then
+    # this complains occasionally about missing deps which don't matter
+    # so we ignore the return code with "|| true"
     echo "DEVELOPMENT ONLY: detected PyCharm egg, installing debugger support"
-    /uber/env/bin/easy_install /mnt/app/pycharm-debug-py3k.egg
+    /uber/env/bin/easy_install /mnt/app/pycharm-debug-py3k.egg || true
+    echo "DEVELOPMENT ONLY: done installing pyCharm egg"
 fi
+    
+echo "DEVELOPMENT ONLY: done installing dev setup"
