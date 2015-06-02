@@ -6,7 +6,7 @@ MAINTAINER Dominic Cerquetti "dom@magfest.org"
 RUN git clone https://github.com/magfest/sideboard -b docker /uber/sideboard
 
 WORKDIR /uber/sideboard
-RUN git clone https://github.com/magfest/ubersystem -b docker-db-fix plugins/uber
+RUN git clone https://github.com/magfest/ubersystem plugins/uber
 
 RUN /uber/env/bin/pip3 install -e /uber/sideboard
 RUN /uber/env/bin/pip3 install -e /uber/sideboard/plugins/uber
