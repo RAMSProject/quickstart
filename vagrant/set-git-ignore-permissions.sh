@@ -6,6 +6,9 @@
 # 777 since window's file permissions are incompatible with linux.
 #
 # HACKY AS HELL, but it works.
+#
+# TODO: I really wish this was a global config option so we didn't have
+# to iterate through all the repos.  what a drag.
 
 if [ -e /etc/is_running_vagrant_on_windows ]
 then 
