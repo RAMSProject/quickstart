@@ -13,3 +13,6 @@ build/build.sh
 # windows-only: tell all git repos to ignore file permissions, which are 
 # broken on vagrant shared folders from windows. (doesn't affect *nix)
 vagrant/set-git-ignore-permissions.sh
+
+# setup some bash aliases/etc
+cp vagrant/bashrc ~/.bashrc
