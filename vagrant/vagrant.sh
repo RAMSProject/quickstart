@@ -15,4 +15,4 @@ build/build.sh
 vagrant/set-git-ignore-permissions.sh
 
 # setup some bash aliases/etc
-cp vagrant/bashrc ~/.bashrc
+cat vagrant/bashrc >> ~/.bashrc
