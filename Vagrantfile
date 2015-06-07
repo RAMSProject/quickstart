@@ -6,23 +6,26 @@ Vagrant.require_version ">= 1.6.2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "ubuntu/trusty64"
 
-    config.vm.network :forwarded_port, guest: 8282, host: 8282
-    config.vm.network :forwarded_port, guest: 80, host: 8000
-    config.vm.network :forwarded_port, guest: 4443, host: 4443
-
-    # uncomment for private network 
-    # (useful if doing SMB or NFS shares FROM the guest OS -to- host OS
-    # config.vm.network "private_network", type: "dhcp"
-
-    # uncomment to enable SMB filesharing which is WAY faster than
-    # Virtualbox's shared folders which are SLOOOOOOOOOOOOOOOOW.
-    # note: symlinks don't work then.
-    # note2: SMB is also kind of unstable, so probably don't use it.
+    # setup a public network for Vagrant
+    # i.e. the VM will act as though it's another machine on your internal network
+    # this is insecure because it exposes this machine to the entire world, however,
+    # if you're behind a firewall it's like running this machine on a computer behind the firewall.
     #
-    # if Vagrant::Util::Platform.windows?
-    #    config.vm.synced_folder ".", "/home/vagrant/uber", type: "smb"
-    # else
-    # non-SMB share VBOXfs (stable, but slow as hell)
+    # IMPORTANT NOTE: We switched from the default NAT+port forwarding because
+    # Virtualbox's port forwarding has some serious bugs in it that interact badly with Docker.
+    # Do not use port forwarding to access applications running inside the
+    # Vagrant VM (especially Docker containers)
+    #
+    # This is discussed here:
+    # https://github.com/boot2docker/boot2docker-cli/issues/164
+    # https://groups.google.com/forum/#!topic/docker-user/bvZdFqQnUK8 <-- we were experiencing this content-length error
+    #
+    config.vm.network "public_network", type: "dhcp"
+
+
+    # Share the root folder into the host OS.
+    # this uses vboxfs to share stuff. it's stable, but slow as hell on windows.
+    # fortunately with Docker, we're not doing too much in the shared folder
     config.vm.synced_folder ".", "/home/vagrant/docker"
     # end
 
