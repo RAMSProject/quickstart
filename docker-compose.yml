@@ -24,5 +24,3 @@ nginx:
   volumes:
     - config/nginx/conf.d:/etc/nginx/conf.d
     - config/nginx/certs:/etc/nginx/certs
-    #- <log-dir>:/var/log/nginx
-    #- <html-dir>:/var/www/html
