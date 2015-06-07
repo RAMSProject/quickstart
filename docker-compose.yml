@@ -7,10 +7,22 @@ web:
   ports:
     - "8282:8282"
   volumes:
-    - app:/mnt/app
+    - app:/mnt/app   # DO NOT USE IN PRODUCTION, FOR LOCAL DEV ONLY!
 db:
   image: postgres
   environment:
     - POSTGRES_PASSWORD=uber_db
     - POSTGRES_USER=uber_db
     - POSTGRES_DB=uber_db
+nginx:
+  image: nginx
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - web
+  volumes:
+    # - config/nginx/conf.d:/etc/nginx/conf.d
+    # - config/nginx/certs:/etc/nginx/certs
+    #- <log-dir>:/var/log/nginx
+    #- <html-dir>:/var/www/html
