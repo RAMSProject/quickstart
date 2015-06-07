@@ -64,7 +64,7 @@ Inserting an admin user
 From inside vagrant, press CTRL+Z and then type in the following to insert an admin user:
 
 ```
-docker exec uberdocker_web_1 /uber/env/bin/sep insert_admin
+docker exec docker_web_1 /uber/env/bin/sep insert_admin
 ```
 
 Now you can login to the web app with username "magfest@example.com" and password "magfest"
