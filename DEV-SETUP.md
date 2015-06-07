@@ -32,17 +32,31 @@ vagrant up
 
 6) Now that you have a build of the current code, all you need to do is run it.
 
+First, login to the virtual machine:
 ```
 vagrant ssh
+```
+
+Then, get the IP address of this machine, you will later type this into your browser:
+```
+which_ip
+```
+
+Bring up the entire app!
+```
 cd docker
 docker-compose up
 ```
 
-This will start the uber app in a container, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
+This will start the uber app, database, and other stuff in a container, and the code will be accessible 
+from the OS running Vagrant (i.e. Windows) in app/uber/
 
-7) Open your brower and go to "http://localhost:8282/uber/"
+7) Open your brower and using the IP you typed in earlier, go to the following URL in a browser:  
 
-You've installed it!
+Example, if the IP from the 'which_ip' command is 1.2.3.4 type this:
+```
+http://1.2.3.4:8282/
+```
 
 Inserting an admin user
 ======

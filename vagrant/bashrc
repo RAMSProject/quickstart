@@ -1,0 +1,2 @@
+# print out the IP address of eth1, which is what the developer will type into a browser to access the app
+alias which_ip="ifconfig eth1 | grep 'inet addr' | cut -f 2 -d ':' | cut -f 1 -d ' '"
