@@ -21,7 +21,7 @@ nginx:
     - "443:443"
   links:
     - web
-  volumes:
+  # volumes:
     # - config/nginx/conf.d:/etc/nginx/conf.d
     # - config/nginx/certs:/etc/nginx/certs
     #- <log-dir>:/var/log/nginx
