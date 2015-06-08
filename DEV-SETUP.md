@@ -9,10 +9,12 @@ QUICKSTART
 - Git - https://git-scm.com/
 
 2) Open a terminal
+
 WINDOWS INSTRUCTIONS: Launch a DOS prompt in administrator mode.
 Press the Start Menu, type in 'command prompt', and RIGHT CLICK, Run As Administrator
 
 LINUX INSTRUCTIONS: Open a terminal
+
 MAC INSTRUCTIONS: Open a terminal (CMD+SPACE type in "terminal")
 
 3) Change your directory to where you want the code to live on your machine. For example, C:\projects\
