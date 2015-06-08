@@ -6,13 +6,16 @@ QUICKSTART
 1) Download and install the following (windows is fine):
 - Virtualbox - https://www.virtualbox.org/
 - Vagrant - https://www.vagrantup.com/
+- Git - https://git-scm.com/
 
-2) Clone this repository somewhere
-
-3) Launch a DOS prompt in administrator mode.
+2) Open a terminal
+WINDOWS INSTRUCTIONS: Launch a DOS prompt in administrator mode.
 Press the Start Menu, type in 'command prompt', and RIGHT CLICK, Run As Administrator
 
-Change your directory to where you want the code to live on your machine. For example, C:\projects\
+LINUX INSTRUCTIONS: Open a terminal
+MAC INSTRUCTIONS: Open a terminal (CMD+SPACE type in "terminal")
+
+3) Change your directory to where you want the code to live on your machine. For example, C:\projects\
 
 ```
 cd C:\projects\
@@ -20,7 +23,7 @@ cd C:\projects\
 
 4) Clone this repository somewhere like so:
 ```
-git clone https://github.com/magfest/ubersystem-docker/ 
+git clone https://github.com/magfest/ubersystem-docker/ -b dom-unstable 
 cd ubersystem-docker
 ```
 
@@ -37,22 +40,20 @@ First, login to the virtual machine:
 vagrant ssh
 ```
 
-Then, get the IP address of this machine, you will later type this into your browser:
+Then, bring up the entire app!
+```
+cd docker
+docker-compose up -d
+```
+
+This will start the uber app, database, and other stuff in a container running in the background, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
+
+7) Get the IP address of this machine, you will later type this into your browser:
 ```
 which_ip
 ```
 
-Bring up the entire app!
-```
-cd docker
-docker-compose up
-```
-
-This will start the uber app, database, and other stuff in a container, and the code will be accessible 
-from the OS running Vagrant (i.e. Windows) in app/uber/
-
-7) Open your brower and using the IP you typed in earlier, go to the following URL in a browser:  
-
+8) Open your brower and using the IP you typed in earlier, go to the following URL in a browser:  
 Example, if the IP from the 'which_ip' command is 1.2.3.4 type this:
 ```
 http://1.2.3.4:8282/
@@ -61,7 +62,7 @@ http://1.2.3.4:8282/
 Inserting an admin user
 ======
 
-From inside vagrant, press CTRL+Z and then type in the following to insert an admin user:
+Type the following to insert an admin user:
 
 ```
 docker exec docker_web_1 /uber/env/bin/sep insert_admin
