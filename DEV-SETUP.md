@@ -1,7 +1,7 @@
 QUICKSTART
 ======
 
-(Windows instructions, though linux/mac should be similar)
+(Windows instructions, though linux/mac should be pretty much identical)
 
 1) Download and install the following (windows is fine):
 - Virtualbox - https://www.virtualbox.org/
