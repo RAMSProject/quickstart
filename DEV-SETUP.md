@@ -58,8 +58,10 @@ This will start the uber app, database, and other stuff in a container running i
 9) Open your brower and using the IP you typed in earlier, go to the following URL in a browser:  
 Example, if the IP from the 'which_ip' command is 1.2.3.4 type this:
 ```
-http://1.2.3.4:8282/
+https://1.2.3.4/
 ```
+
+You will get an SSL error, this is OK, just click through to ignore it.
 
 Inserting an admin user
 ======
