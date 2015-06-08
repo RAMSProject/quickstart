@@ -40,20 +40,20 @@ First, login to the virtual machine:
 vagrant ssh
 ```
 
-Then, bring up the entire app!
-```
-cd docker
-docker-compose up -d
-```
-
-This will start the uber app, database, and other stuff in a container running in the background, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
-
 7) Get the IP address of this machine, you will later type this into your browser:
 ```
 which_ip
 ```
 
-8) Open your brower and using the IP you typed in earlier, go to the following URL in a browser:  
+8) Then, bring up the entire app!
+```
+cd docker
+docker-compose up
+```
+
+This will start the uber app, database, and other stuff in a container running in the background, and the code will be accessible from the OS running Vagrant (i.e. Windows) in app/uber/
+
+9) Open your brower and using the IP you typed in earlier, go to the following URL in a browser:  
 Example, if the IP from the 'which_ip' command is 1.2.3.4 type this:
 ```
 http://1.2.3.4:8282/
@@ -62,7 +62,7 @@ http://1.2.3.4:8282/
 Inserting an admin user
 ======
 
-Navigate to the following URL:
+Navigate to the following URL (replace the IP address here):
 
 ```
 https://1.2.3.4/uber/accounts/insert_test_admin
