@@ -6,13 +6,16 @@ QUICKSTART
 1) Download and install the following (windows is fine):
 - Virtualbox - https://www.virtualbox.org/
 - Vagrant - https://www.vagrantup.com/
+- Git - https://git-scm.com/
 
-2) Clone this repository somewhere
-
-3) Launch a DOS prompt in administrator mode.
+2) Open a terminal
+WINDOWS INSTRUCTIONS: Launch a DOS prompt in administrator mode.
 Press the Start Menu, type in 'command prompt', and RIGHT CLICK, Run As Administrator
 
-Change your directory to where you want the code to live on your machine. For example, C:\projects\
+LINUX INSTRUCTIONS: Open a terminal
+MAC INSTRUCTIONS: Open a terminal (CMD+SPACE type in "terminal")
+
+3) Change your directory to where you want the code to live on your machine. For example, C:\projects\
 
 ```
 cd C:\projects\
@@ -20,7 +23,7 @@ cd C:\projects\
 
 4) Clone this repository somewhere like so:
 ```
-git clone https://github.com/magfest/ubersystem-docker/ 
+git clone https://github.com/magfest/ubersystem-docker/ -b dom-unstable 
 cd ubersystem-docker
 ```
 
