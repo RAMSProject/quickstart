@@ -6,7 +6,7 @@
 # workaround a weird ubuntu bug where sometimes ubuntu hangs on apt-get update
 # during the docker install.  set affinity to use ipv4 where possible.
 # this wasn't originally a problem, but started happening.
-echo -en "# DOCKER: fot sites which prefer IPv4 connections\nprecedence ::ffff:0:0/96  100" >> /etc/gai.conf
+echo -en "# DOCKER: for sites which prefer IPv4 connections\nprecedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
 
 command_exists() {
