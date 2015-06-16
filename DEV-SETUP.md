@@ -76,6 +76,15 @@ Now you can login to the web app with username "magfest@example.com" and passwor
 
 You can edit the deployed code at C:\projects\ubersystem-docker\app\uber now.
 
+Run Unit Tests
+======
+
+To run the unit tests, SSH into vagrant and type:
+
+```bash
+./docker/run-tests.sh
+```
+
 Resetting everything
 ======
 
