@@ -1,13 +1,13 @@
 # docker-compose for development of ubersystem
 
 web:
-  image: magfest/uber
+  image: thaeli/rams
   links:
     - db
   ports:
     - "8282:8282"
   volumes:
-    - app:/mnt/app
+    - ../ubersystem:/app/plugins/uber
 db:
   image: postgres
   environment:

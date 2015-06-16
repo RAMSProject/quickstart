@@ -2,6 +2,32 @@ super mega early beta of ubersystem running in a container
 ULTRA EXPERIMENTAL RIGHT NOW
 -Dom
 
+OH HEY I CHANGED EVERYTHING AGAIN EVEN MORE EXPERIMENTAL EDITION
+(now with 100% less Vagrant)
+-Thaeli
+
+To get a basic copy of RAMS up and running:
+===
+```
+docker-compose up -d
+```
+Then browse to http://localhost:8282/uber - if you're using boot2docker you may need to use the IP address from `boot2docker ip` instead of localhost.
+
+
+Whoa, back up a bit! How do I get this Docker thing running?
+===
+Docker has very comprehensive install docs: https://docs.docker.com/installation/#installation
+You may also need to install docker-compose separately.
+
+https://registry.hub.docker.com/u/dduportal/docker-compose/
+http://stackoverflow.com/questions/29289785/how-to-install-docker-compose-on-windows
+
+`brew install docker-compose`
+'pip install docker-compose'
+
+
+
+
 for dev environments (with Vagrant) do this:
 ===
 
@@ -72,8 +98,8 @@ More details:
 
 What is build-dev.sh doing?
 
-This will take the uber base image and copy all the python code from 
-the docker container's /uber into the data volume. 
+This will take the uber base image and copy all the python code from
+the docker container's /uber into the data volume.
 This is mounted from the host OS in the 'app' directory here.  You can now
 edit the code there with your favorite editor/IDE
 
@@ -84,7 +110,7 @@ This image is identical to 'magfest/uber' which was just built, except,
 it will look for it's code in the 'app/uber' directory, making it nice for
 development.
 
-The entire point of this is the host OS can access the data volume and 
+The entire point of this is the host OS can access the data volume and
 edit the running code inside the docker container.
 
 DO NOT USE THIS IN PRODUCTION. However, it's very useful in development.

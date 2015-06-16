@@ -1,9 +1,9 @@
-FROM magfest/sideboard
+FROM thaeli/sideboard
 MAINTAINER Dominic Cerquetti "dom@magfest.org"
 
 # download Uber Core
 # TODO: also here install any plugins you want
-RUN git clone https://github.com/magfest/ubersystem -b docker plugins/uber
+RUN git clone https://github.com/magfest/ubersystem plugins/uber
 
 # now install dependencies for everything we just downloaded
 RUN /app/env/bin/paver install_deps
