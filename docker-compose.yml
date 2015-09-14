@@ -1,7 +1,7 @@
 # docker-compose for development of ubersystem
 
 web:
-  #image: thaeli/rams
+  image: ramsproject/rams
   build: .
   links:
     - db
