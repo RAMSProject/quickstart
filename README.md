@@ -1,4 +1,6 @@
 To develop on RAMS Core:
+===
+
 1. Clone the quickstart repo.
 2. Clone all plugins into src/ - at a minimum you must clone ramsproject/rams into src/uber/
 2. `docker-compose -d up`
@@ -30,6 +32,7 @@ http://stackoverflow.com/questions/29289785/how-to-install-docker-compose-on-win
 --------------
 
 Next steps!
+===
 
 To insert an admin user, visit the following URL: <docker machine ip>/uber/accounts/insert_test_admin
 
