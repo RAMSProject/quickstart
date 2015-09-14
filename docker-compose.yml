@@ -1,13 +1,14 @@
 # docker-compose for development of ubersystem
 
 web:
-  image: thaeli/rams
+  #image: thaeli/rams
+  build: .
   links:
     - db
   ports:
     - "8282:8282"
   volumes:
-    - ../ubersystem:/app/plugins/uber
+    - ./src:/app/plugins
 db:
   image: postgres
   environment:

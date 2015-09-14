@@ -1,0 +1,13 @@
+thaeli/sideboard: This is the Sideboard base container. You probably don't need to touch this; if you do, just rebuild it manually using the Dockerfile in that repo.
+
+thaeli/rams-core: This is the RAMS core container. It's built automatically on every docker-compose up, incorporating any changes that have been made to core. If you need to rebuild it manually, use the Dockerfile in this repo.
+
+thaeli/rams-event: This is an example Event Specific Plugin. It's also built automatically via docker-compose up; be sure that its Dockerfile is pointing at the appropriate version of rams-core. When developing in this branch, if you make a change to core, you'll need to rebuild your locally tagged version of rams-core and then do your docker-compose up here.
+
+
+To develop on RAMS Core:
+1. Clone the rams-core repo.
+2. `docker-compose -d up`
+3. Access via your local path (localhost or output of boot2docker ip) [TODO: elaborate]
+4. Edit the code in /src
+5. To see your changes, `docker-compose -d build web`
