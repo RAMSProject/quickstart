@@ -2,7 +2,6 @@
 
 web:
   image: ramsproject/rams
-  build: .
   links:
     - db
   ports:
