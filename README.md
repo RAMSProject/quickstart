@@ -2,10 +2,11 @@ To develop on RAMS Core:
 ===
 
 1. Clone the quickstart repo.
-2. Clone all plugins into src/ - at a minimum you must clone ramsproject/rams into src/uber/
-2. `docker-compose -d up`
-3. Access via your local path (localhost or output of boot2docker ip) [TODO: elaborate]
-4. Edit the code in src/
+2. `git clone https://github.com/RAMSProject/rams.git src/uber`
+3. Clone any other plugins you are using into src/
+4. `docker-compose -d up`
+5. Access via your local path output of `docker-machine ip dev`) [TODO: elaborate]
+6. Edit the code in src/ - most updates should be live. Use `docker-compose` to restart daemon if needed.
 
 If you need to build/change Python or Javascript dependencies you'll have to change `requirements.txt` or `bower.json` and manually rebuild the ramsproject/rams container locally. Ditto if you're changing something in Sideboard itself. Note: if you don't know if you're doing either of these, you probably aren't.
 
