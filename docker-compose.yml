@@ -1,16 +1,20 @@
 # docker-compose for development of ubersystem
 
 web:
-  image: ramsproject/rams
+  build: .  
+# image: ramsproject/rams
   links:
     - db
+    - redis
   ports:
     - "8282:8282"
-  volumes:
-    - ./src:/app/plugins
+#  volumes:
+#    - ./src:/app/plugins
 db:
   image: postgres
   environment:
     - POSTGRES_PASSWORD=uber_db
     - POSTGRES_USER=uber_db
     - POSTGRES_DB=uber_db
+redis:
+  image: redis
