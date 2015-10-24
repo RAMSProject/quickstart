@@ -1,0 +1,17 @@
+# docker-compose for development of ubersystem
+
+web:
+  build: .
+  links:
+    - db
+    - redis
+  ports:
+    - "80:8282"
+db:
+  image: postgres
+  environment:
+    - POSTGRES_PASSWORD=uber_db
+    - POSTGRES_USER=uber_db
+    - POSTGRES_DB=uber_db
+redis:
+  image: redis
