@@ -6,9 +6,7 @@ web:
     - db
     - redis
   ports:
-    - "8282:8282"
-  volumes:
-    - ./src:/app/plugins
+    - "80:8282"
 db:
   image: postgres
   environment:
