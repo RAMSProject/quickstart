@@ -9,6 +9,7 @@ web:
     - "8282:8282"
   volumes:
     - ./src:/app/plugins
+  restart: on-failure
 db:
   image: postgres
   environment:
