@@ -1,12 +1,11 @@
 # Getting Started Developing in RAMS: Community Edition
-===
 
 ## Getting to Know RAMS: What We Use
  If you just want to spin up an instance, feel free to skip down to "Before You Start: Setting Up Your Environment." However, if you're brand new, you should familiarize yourself with our structure.
 
 ### RAMS Technology
 
- RAMS is based on **Sideboard**, a custom framework that ties plugins together and runs them as a web app. The "uber" plugin - [which is its own repo](https://github.com/magfest/ubersystem) - is itself a plugin for Sideboard. In general you shouldn't need to worry about Sideboard, but be aware that it has several overrides for built-in Python libraries. It will be automatically included when you install RAMS following the instructions below.
+ RAMS is based on **Sideboard**, a custom framework that ties plugins together and runs them as a web app. The "uber" plugin - [which is its own repo](https://github.com/RAMSProject/rams) - is itself a plugin for Sideboard. In general you shouldn't need to worry about Sideboard, but be aware that it has several overrides for built-in Python libraries. It will be automatically included when you install RAMS following the instructions below.
 
  RAMS follows a MVC structure, with **CherryPy** tying the view and controller together. Every template (in `/uber/templates/`, excluding the `static_views` folder) requires a function of the same name in `/uber/site_sections`.
 
@@ -43,11 +42,11 @@ Docker spins up three containers: `db` for the postgres database, `redis` for th
 
 The basic structure of docker-compose commands is `sudo docker-compose COMMAND CONTAINER`. If no container is specified, it will run the command against all active containers.
 
-*To create a test admin account*, browse to http://localhost:8282/uber/test_insert_admin. The test account's name is `magfest@example.com` and its password is `magfest`
+**To create a test admin account**, browse to http://localhost:8282/uber/test_insert_admin. The test account's name is `magfest@example.com` and its password is `magfest`
 
-*To restart the server*, run: `sudo docker-compose restart web`.
+**To restart the server**, run: `sudo docker-compose restart web`.
 
-*To reset the database*, run:
+**To reset the database**, run:
 ```bash
 # NOTE: Doing this will remove all data from both databases! Use caution, please!
 sudo docker-compose stop
@@ -55,15 +54,15 @@ sudo docker-compose rm # You will need to confirm this
 sudo docker-compose up -d
 ```
 
-*To check if your server is still running*, run: `sudo docker-compose ps`
+**To check if your server is still running**, run: `sudo docker-compose ps`
 
-*To inspect the logs* (e.g., to see why the web server crashed), run: `sudo docker-compose logs web`
+**To inspect the logs** (e.g., to see why the web server crashed), run: `sudo docker-compose logs web`
 
-*To start all stopped services* (e.g., after restarting your dev box), run: `sudo docker-compose start`
+**To start all stopped services** (e.g., after restarting your dev box), run: `sudo docker-compose start`
 
 If you need to build/change Python or Javascript dependencies you'll have to change `requirements.txt` or `bower.json` and manually rebuild the ramsproject/rams container locally using `sudo docker-compose build web`. Ditto if you're changing something in Sideboard itself. Note: if you don't know if you're doing either of these, you probably aren't.
 
-In rare cases, your containers may not pull all their files properly or may become corrupted. *To completely kill your containers and re-pull them*, run:
+In rare cases, your containers may not pull all their files properly or may become corrupted. **To completely kill your containers and re-pull them**, run:
 ```bash
 sudo docker stop
 sudo docker rm
