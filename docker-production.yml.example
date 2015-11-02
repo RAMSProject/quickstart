@@ -1,0 +1,21 @@
+# docker-compose for development of ubersystem
+
+web:
+  build: .
+  restart: always
+  links:
+    - db
+    - redis
+  ports:
+    - "80:8282"
+db:
+  image: thaeli/postgres
+  environment:
+    - POSTGRES_PASSWORD=uber_db
+    - POSTGRES_USER=uber_db
+    - POSTGRES_DB=uber_db
+    - AWS_SECRET_ACCESS_KEY=
+    - AWS_ACCESS_KEY_ID=
+    - WALE_S3_PREFIX=
+redis:
+  image: redis
