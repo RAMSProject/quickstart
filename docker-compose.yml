@@ -9,9 +9,12 @@ web:
     - "8282:8282"
   volumes:
     - ./src:/app/plugins
-  restart: on-failure
+  restart: always
+  environment:
+    - DB_CONNECTION_STRING=postgresql://uber_db:uber_db@rams_db:5432/uber_db
 db:
   image: postgres
+  name: rams_db
   environment:
     - POSTGRES_PASSWORD=uber_db
     - POSTGRES_USER=uber_db
