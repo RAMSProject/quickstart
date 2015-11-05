@@ -10,3 +10,4 @@ RUN virtualenv --always-copy /venv \
   && /venv/bin/pip install wal-e
 
 ADD setup-wale.sh /docker-entrypoint-initdb.d/
+ADD fix-acl.sh /docker-entrypoint-initdb.d/

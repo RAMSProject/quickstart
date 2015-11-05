@@ -13,10 +13,11 @@ else
             echo "WALE_S3_PREFIX does not exist"
         else
             echo "Scheduling WAL backups";
-            echo "wal_level = hot_standby" >> /var/lib/postgresql/data/postgresql.conf
+            echo "wal_level = archive" >> /var/lib/postgresql/data/postgresql.conf
             echo "archive_mode = on" >> /var/lib/postgresql/data/postgresql.conf
             echo "archive_command = 'envdir /etc/wal-e.d/env /venv/bin/wal-e wal-push %p'" >> /var/lib/postgresql/data/postgresql.conf
             echo "archive_timeout = 60" >> /var/lib/postgresql/data/postgresql.conf
+            echo "checkpoint_timeout = 3600" >> /var/lib/postgresql/data/postgresql.conf
 
             # Assumption: the group is trusted to read secret information
             umask u=rwx,g=rx,o=
@@ -41,6 +42,7 @@ else
               echo "standby_mode     = 'off'" >> $PGDATA/recovery.conf
               echo "primary_conninfo = 'user=$POSTGRES_USER password=$POSTGRES_PASSWORD'" >> $PGDATA/recovery.conf
               echo "restore_command  = 'envdir /etc/wal-e.d/env /venv/bin/wal-e wal-fetch "%f" "%p"'" >> $PGDATA/recovery.conf
+              echo "recovery_target_timeline = 'latest'" >> $PGDATA/recovery.conf
 
               cat $PGDATA/recovery.conf
               chown -R postgres "$PGDATA"
@@ -51,7 +53,7 @@ else
               echo "Backup not found. Continuing with empty database."
               gosu postgres pg_ctl -D "$PGDATA" -w stop
               gosu postgres pg_ctl -D "$PGDATA" -o "-c listen_addresses=''" -w start
-              su - postgres -c "/usr/bin/envdir /etc/wal-e.d/env /venv/bin/wal-e backup-push /var/lib/postgresql/data"
+              #su - postgres -c "/usr/bin/envdir /etc/wal-e.d/env /venv/bin/wal-e backup-push /var/lib/postgresql/data"
             fi
 
             su - postgres -c "crontab -l | { cat; echo \"0 3 * * * /usr/bin/envdir /etc/wal-e.d/env /venv/bin/wal-e backup-push /var/lib/postgresql/data\"; } | crontab -"
