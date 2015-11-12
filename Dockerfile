@@ -1,7 +1,8 @@
 FROM ramsproject/rams
 
 ADD src plugins/
-ADD development.ini .
+ADD sideboard-development.ini ./development.ini
+ADD uber-development.ini plugins/uber/development.ini
 RUN /app/env/bin/paver install_deps
 
 # derp, fix this to be done in sideboard instead

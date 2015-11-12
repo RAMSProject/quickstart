@@ -1,0 +1,23 @@
+# docker-compose for production of ubersystem
+
+lb:
+  build: lb
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  env_file: $SECRETS_DIR/lb-env
+web:
+  build: .
+  restart: always
+  links:
+    - db
+  env_file: $SECRETS_DIR/web-env
+db:
+  build: postgres
+  container_name: rams_db
+  volume_driver: local
+  volumes:
+    - rams_db_data:/var/lib/postgresql/data
+  env_file: $SECRETS_DIR/db-env
