@@ -42,7 +42,7 @@ Docker spins up three containers: `db` for the postgres database, `redis` for th
 
 The basic structure of docker-compose commands is `sudo docker-compose COMMAND CONTAINER`. If no container is specified, it will run the command against all active containers.
 
-**To create a test admin account**, browse to http://localhost:8282/uber/test_insert_admin. The test account's name is `magfest@example.com` and its password is `magfest`
+**To create a test admin account**, browse to http://localhost:8282/uber/accounts/insert_test_admin. The test account's name is `magfest@example.com` and its password is `magfest`
 
 **To restart the server**, run: `sudo docker-compose restart web`.
 
