@@ -28,7 +28,7 @@ web:
     #- INTERLOCK_DATA={"hostname":"regg","domain":"anthrocon.org"}
 db:
   image: postgres
-  name: rams_db
+  container_name: rams_db
   environment:
     - POSTGRES_PASSWORD=uber_db
     - POSTGRES_USER=uber_db
