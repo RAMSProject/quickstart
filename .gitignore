@@ -1,2 +1,5 @@
 src
 src/*
+nginx/certs
+uber-development.ini
+sideboard-development.ini
