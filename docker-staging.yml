@@ -7,11 +7,14 @@ web:
     - redis
   ports:
     - "80:8282"
+  environment:
+    - DB_CONNECTION_STRING=postgresql://rams:testdb@rams_db:5432/rams
 db:
   image: postgres
+  container_name: rams_db
   environment:
-    - POSTGRES_PASSWORD=uber_db
-    - POSTGRES_USER=uber_db
-    - POSTGRES_DB=uber_db
+    - POSTGRES_PASSWORD=testdb
+    - POSTGRES_USER=rams
+    - POSTGRES_DB=rams
 redis:
   image: redis
