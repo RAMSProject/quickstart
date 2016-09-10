@@ -2,15 +2,14 @@
 
 lb:
   #image: jwilder/nginx-proxy
-  build: nginx
+  build: lb
   ports:
     - "80:80"
     - "443:443"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
-  #environment:
-    #- HAPROXY_SSL_CERT=/ssl/ssl.pem
-    #- HAPROXY_PROXY_BACKEND_OVERRIDE_ADDRESS=159.203.76.14
+  environment:
+    - DEFAULT_HOST=rams.local
 web:
   build: .
   links:
@@ -23,9 +22,8 @@ web:
   restart: always
   environment:
     - DB_CONNECTION_STRING=postgresql://uber_db:uber_db@rams_db:5432/uber_db
-    - VIRTUAL_HOST=regg.anthrocon.org
+    - VIRTUAL_HOST=rams.local
     - CERT_NAME=ssl
-    #- INTERLOCK_DATA={"hostname":"regg","domain":"anthrocon.org"}
 db:
   image: postgres
   container_name: rams_db
