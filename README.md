@@ -1,3 +1,5 @@
+Image info: [![](https://images.microbadger.com/badges/image/ramsproject/rams.svg)](https://microbadger.com/images/ramsproject/rams "Get your own image badge on microbadger.com")
+
 # Getting Started Developing in RAMS: Community Edition
 
 ## Getting to Know RAMS: What We Use
