@@ -33,7 +33,7 @@
 6. Clone any other plugins you are using into src/
 7. (Linux only?) Run `sudo service docker start`.
 8. Run `sudo docker-compose up -d` [TODO: Windows instructions] *Note*: The -d flag runs this process in the background.
-9. Browse to http://localhost/rams - Windows and Mac users may need to use the IP address from `boot2docker ip` instead of localhost. [TODO: check this]
+9. Browse to http://localhost/rams 
 10. Edit the code in src/ using your preferred tool - static files (like HTML) will be updated on-the-fly. Run `sudo docker-compose restart web` to propagate other changes.
 
 ## Developing in Docker
