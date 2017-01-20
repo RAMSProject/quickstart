@@ -33,7 +33,7 @@
 6. Clone any other plugins you are using into src/
 7. (Linux only?) Run `sudo service docker start`.
 8. Run `sudo docker-compose up -d` [TODO: Windows instructions] *Note*: The -d flag runs this process in the background.
-9. Browse to http://localhost:8282/uber - Windows and Mac users may need to use the IP address from `boot2docker ip` instead of localhost. [TODO: check this]
+9. Browse to http://localhost/rams 
 10. Edit the code in src/ using your preferred tool - static files (like HTML) will be updated on-the-fly. Run `sudo docker-compose restart web` to propagate other changes.
 
 ## Developing in Docker
@@ -42,7 +42,7 @@ Docker spins up three containers: `db` for the postgres database, `redis` for th
 
 The basic structure of docker-compose commands is `sudo docker-compose COMMAND CONTAINER`. If no container is specified, it will run the command against all active containers.
 
-**To create a test admin account**, browse to http://localhost:8282/uber/accounts/insert_test_admin. The test account's name is `magfest@example.com` and its password is `magfest`
+**To create a test admin account**, curl (or browse to) http://localhost/rams/accounts/insert_test_admin. The test account's name is `magfest@example.com` and its password is `magfest`
 
 **To restart the server**, run: `sudo docker-compose restart web`.
 
