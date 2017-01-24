@@ -18,15 +18,15 @@ RAMS is a plugin for [**Sideboard**](https://github.com/magfest/sideboard), a cu
  * `/uber/config.py` processes these variables and inserts them into a global `c` object. Config.py also defines dynamic variables and properties, which are also added to the `c` object.
  
 ### RAMS Structure
-If you use this repo, a lot of RAMS' native structure will be altered. For example, Sideboard is its own Docker container, so you will not see it. However, it is useful to know what the actual file structure would be if you installed RAMS 'bare' on your machine by cloning the Sideboard repository, then cloning the RAMS repository and other RAMS plugins into Sideboard's plugins folder (see below).
+If you use this repo, your folder structure may not look exactly like this. For example, Sideboard is its own Docker container, so you will not see it. However, it is useful to know what the actual file structure would be if you installed RAMS 'bare' on your machine by cloning the Sideboard repository, then cloning the RAMS repository and other RAMS plugins into Sideboard's plugins folder (see below).
 
 Assuming you had created a folder to contain RAMS called `RAMS Test`, your folder structure might look like this:
 * RAMS Test
  * *various Sideboard folders*
  * `development.ini`: called sideboard-development.ini in Quickstart, this is a config file for Sideboard. You might use this to control the order in which plugins are loaded.
- * `plugins`
-   * `rams`
-     * `development.ini`: called development.ini in Quickstart, this is the config file for RAMS mentioned above.
+ * `plugins`: this will show as `quickstart/src` when using this repo.
+   * `uber`: this will contain the `rams` repository. Due to legacy naming conventions, it must be named `uber`.
+     * `development.ini`: called development.ini in Quickstart, this is the config file for RAMS. See RAMS Technology, above, for how this interacts with two other config files.
      * `uber`: this contains the bulk of the RAMS app. Most code changes would be in this folder.
        * `site_sections`
        * `templates`
