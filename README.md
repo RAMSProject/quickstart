@@ -5,17 +5,37 @@
 
 ### RAMS Technology
 
- RAMS is based on **Sideboard**, a custom framework that ties plugins together and runs them as a web app. The "uber" plugin - [which is its own repo](https://github.com/RAMSProject/rams) - is itself a plugin for Sideboard. In general you shouldn't need to worry about Sideboard, but be aware that it has several overrides for built-in Python libraries. It will be automatically included when you install RAMS following the instructions below.
+RAMS is a plugin for [**Sideboard**](https://github.com/magfest/sideboard), a custom framework that ties plugins together and runs them as a web app. The "uber" plugin - [which is its own repo](https://github.com/RAMSProject/rams) - is most of what you'll be working with. In general you shouldn't need to worry about Sideboard, but be aware that it has several overrides for built-in Python libraries. It will be automatically included when you install RAMS following the instructions below.
 
  RAMS follows a MVC structure, with **CherryPy** tying the view and controller together. Every template (in `/uber/templates/`, excluding the `static_views` folder) requires a function of the same name in `/uber/site_sections`.
 
- The entire model is declared in `/uber/models.py` using the **SQLAlchemy** ORM. We use **PostgreSQL** for our database, and **Sqitch** to create and run database migrations.
+ The entire model is declared in `/uber/models.py` using the **SQLAlchemy** ORM. We use **PostgreSQL** for our database, and **Alembic** to create and run database migrations.
 
  Currently, all configuration for the app is defined in four files:
  * `/uber/configspec.ini` declares the static variables and includes in-line explanations of each.
  * `/development-defaults.ini` sets up sane defaults for an example event.
  * `/development.ini`, which is not checked into Git, can be used to override any config option in your local environment.
  * `/uber/config.py` processes these variables and inserts them into a global `c` object. Config.py also defines dynamic variables and properties, which are also added to the `c` object.
+ 
+### RAMS Structure
+If you use this repo, your folder structure may not look exactly like this. For example, Sideboard is its own Docker container, so you will not see it. However, it is useful to know what the actual file structure would be if you installed RAMS 'bare' on your machine by cloning the Sideboard repository, then cloning the RAMS repository and other RAMS plugins into Sideboard's plugins folder (see below).
+
+Assuming you had created a folder to contain RAMS called `RAMS Test`, your folder structure might look like this:
+* RAMS Test
+ * *various Sideboard folders*
+ * `development.ini`: called sideboard-development.ini in Quickstart, this is a config file for Sideboard. You might use this to control the order in which plugins are loaded.
+ * `plugins`: this will show as `quickstart/src` when using this repo.
+   * `uber`: this will contain the `rams` repository. Due to legacy naming conventions, it must be named `uber`.
+     * `development.ini`: called development.ini in Quickstart, this is the config file for RAMS. See RAMS Technology, above, for how this interacts with two other config files.
+     * `uber`: this contains the bulk of the RAMS app. Most code changes would be in this folder.
+       * `site_sections`
+       * `templates`
+       * `tests`
+       * `static`
+       * *.py files not associated with specific webpages, e.g., models.py, config.py*
+   * `your_custom_plugin`
+     * `development.ini`: each custom plugin can have its own set of config.
+     * `your_custom_plugin`: the contents of this subfolder should strongly mirror that of the RAMS plugin itself to enable overrides. Sideboard does in-place replacements of files in the same place with the same name.
 
 ## Quickstart Instructions
 ### Before You Start: Setting Up Your Environment
