@@ -8,22 +8,28 @@ lb:
     - "443:443"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
+  container_name: rams_lb
   environment:
     - DEFAULT_HOST=rams.local
 web:
   build: .
   links:
     - db
-    - redis
   expose:
     - "8282"
+  ports:
+    - "22:22"
   volumes:
     - ./src:/app/plugins
   restart: always
+  container_name: rams_web
   environment:
     - DB_CONNECTION_STRING=postgresql://uber_db:uber_db@rams_db:5432/uber_db
     - VIRTUAL_HOST=rams.local
     - CERT_NAME=ssl
+    - SFTP_USER=rams
+    - SFTP_PASS=rams
+    - PASS_ENCRYPTED=false
 db:
   image: postgres
   container_name: rams_db
@@ -31,5 +37,3 @@ db:
     - POSTGRES_PASSWORD=uber_db
     - POSTGRES_USER=uber_db
     - POSTGRES_DB=uber_db
-redis:
-  image: redis
