@@ -1,4 +1,4 @@
-FROM ramsproject/rams
+FROM ramsproject/rams:mff
 
 ADD src plugins/
 ADD sideboard-development.ini ./development.ini
